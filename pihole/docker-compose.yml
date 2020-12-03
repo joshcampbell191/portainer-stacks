@@ -1,0 +1,38 @@
+version: '2'
+
+services:
+  proxy:  
+    container_name: pihole_proxy
+    image: cloudflare/cloudflared
+    network_mode: host
+    command: proxy-dns --port 5053 --upstream https://1.1.1.1/dns-query --upstream https://1.0.0.1/dns-query
+    ports:
+      - 5053:5053    
+    restart: always
+    
+  app:
+    container_name: pihole_pihole
+    image: pihole/pihole
+    network_mode: host
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "67:67/udp"
+      - "80:80/tcp"
+      - "443:443/tcp"
+    volumes:
+      - ph_pihole:/etc/pihole
+      - ph_dnsmasq.d:/etc/dnsmasq.d
+    environment:
+      - TZ=${TZ}
+      - WEBPASSWORD=${WEBPASSWORD}
+      - ServerIP=${ServerIP}
+      - DNS1=127.0.0.1#5053
+      - DNS2=no
+    depends_on:
+      - proxy
+    restart: always
+
+volumes:
+  ph_pihole:
+  ph_dnsmasq.d:
