@@ -1,0 +1,7 @@
+version: '2'
+
+services:
+  app:  
+    image: 1activegeek/airconnect
+    network_mode: host
+    restart: always
