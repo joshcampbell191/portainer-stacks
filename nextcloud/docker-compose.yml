@@ -1,0 +1,39 @@
+version: '2'
+
+services:
+  db:
+    image: mysql
+    volumes:
+      - nextcloud_db:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_RANDOM_ROOT_PASSWORD=yes
+      - MYSQL_USER=${MYSQL_USER}
+    restart: always
+
+  app:
+    image: nextcloud
+    ports:
+      - 8081:80
+    links:
+      - db
+    volumes:
+      - nextcloud_app:/var/www/html/data
+    environment:
+      - MYSQL_HOST=db
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_USER=${MYSQL_USER}
+      - NEXTCLOUD_ADMIN_USER=${NEXTCLOUD_ADMIN_USER}
+      - NEXTCLOUD_ADMIN_PASSWORD=${NEXTCLOUD_ADMIN_PASSWORD}
+      - NEXTCLOUD_TRUSTED_DOMAINS=${NEXTCLOUD_TRUSTED_DOMAINS}
+      - OVERWRITEHOST=${OVERWRITEHOST}
+      - OVERWRITEPROTOCOL=https
+    depends_on:
+      - db
+    restart: always
+
+volumes:
+  nextcloud_db:
+  nextcloud_app:
