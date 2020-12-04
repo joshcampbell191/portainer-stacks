@@ -11,7 +11,7 @@ services:
     restart: always
     
   app:
-    container_name: pihole_pihole
+    container_name: pihole_app
     image: pihole/pihole
     network_mode: host
     ports:
