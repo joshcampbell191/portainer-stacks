@@ -21,8 +21,8 @@ services:
       - "80:80/tcp"
       - "443:443/tcp"
     volumes:
-      - ph_pihole:/etc/pihole
-      - ph_dnsmasq.d:/etc/dnsmasq.d
+      - pihole_pihole:/etc/pihole
+      - pihole_dnsmasq.d:/etc/dnsmasq.d
     environment:
       - TZ=${TZ}
       - WEBPASSWORD=${WEBPASSWORD}
@@ -34,5 +34,5 @@ services:
     restart: always
 
 volumes:
-  ph_pihole:
-  ph_dnsmasq.d:
+  pihole_pihole:
+  pihole_dnsmasq.d:
