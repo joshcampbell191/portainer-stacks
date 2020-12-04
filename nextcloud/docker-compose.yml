@@ -19,7 +19,10 @@ services:
     links:
       - db
     volumes:
-      - nextcloud_app:/var/www/html/data
+      - nextcloud_html:/var/www/html
+      - nextcloud_apps:/var/www/html/custom_apps
+      - nextcloud_config:/var/www/html/config
+      - nextcloud_data:/var/www/html/data
     environment:
       - MYSQL_HOST=db
       - MYSQL_DATABASE=${MYSQL_DATABASE}
@@ -36,4 +39,7 @@ services:
 
 volumes:
   nextcloud_db:
-  nextcloud_app:
+  nextcloud_html:
+  nextcloud_apps:
+  nextcloud_config:
+  nextcloud_data:
