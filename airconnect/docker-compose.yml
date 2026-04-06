@@ -10,6 +10,6 @@ services:
     network_mode: host
     hostname: airconnect
     volumes:
-      - config:/config
+      - airconnect_config:/config
 volumes:
-  config:
+  airconnect_config:
