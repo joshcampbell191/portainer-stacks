@@ -7,7 +7,6 @@ services:
       - AIRCAST_VAR=-x /config/config.xml
       - AIRUPNP_VAR=kill
     network_mode: host
-    hostname: airconnect
     volumes:
       - airconnect_config:/config
 volumes:
