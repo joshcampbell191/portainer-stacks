@@ -1,7 +1,6 @@
 version: '2'
 services:
   agent:
-    container_name: agent
     image: portainer/agent
     restart: always
     networks:
@@ -13,7 +12,6 @@ services:
       - /volume1/@docker/volumes:/var/lib/docker/volumes
 
   portainer:
-    container_name: portainer
     image: portainer/portainer-ce
     restart: unless-stopped
     command: -H tcp://agent:9001 --tlsskipverify
