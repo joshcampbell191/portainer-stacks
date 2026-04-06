@@ -25,6 +25,5 @@ services:
       - agent
 networks:
   agent_network:
-    driver: bridge
 volumes:
   portainer_data:
