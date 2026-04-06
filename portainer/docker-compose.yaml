@@ -1,7 +1,7 @@
 version: '2'
 services:
   agent:
-    image: portainer/agent
+    image: portainer/agent:alpine-sts
     restart: always
     networks:
       - agent_network
@@ -11,7 +11,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - /volume1/@docker/volumes:/var/lib/docker/volumes
   portainer:
-    image: portainer/portainer-ce
+    image: portainer/portainer-ce:alpine-sts
     restart: unless-stopped
     command: -H tcp://agent:9001 --tlsskipverify
     networks:
