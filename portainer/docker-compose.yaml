@@ -20,10 +20,8 @@ services:
       - 9443:9443/tcp
       - 8000:8000/tcp
     volumes:
-      - portainer_data:/data:rw
+      - /volume1/docker/portainer/data:/data:rw
     depends_on:
       - agent
 networks:
   agent_network:
-volumes:
-  portainer_data:
