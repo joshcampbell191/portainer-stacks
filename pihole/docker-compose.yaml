@@ -15,7 +15,7 @@ services:
     cap_add:
       - NET_ADMIN
     volumes:
-      - /volume1/docker/pihole/pihole:/etc/pihole
+      - /volume1/docker/pihole/pihole:/etc/pihole:rw
 networks:
   macvlan:
     external: true
