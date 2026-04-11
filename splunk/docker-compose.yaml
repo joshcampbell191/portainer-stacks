@@ -7,7 +7,6 @@ services:
       - SPLUNK_GENERAL_TERMS=--accept-sgt-current-at-splunk-com
       - SPLUNK_START_ARGS=--accept-license
       - SPLUNK_LICENSE_URI=Free
-      - SPLUNK_PASSWORD=${SPLUNK_PASSWORD}
     networks:
       macvlan:
         ipv4_address: ${IP_SPLUNK}
