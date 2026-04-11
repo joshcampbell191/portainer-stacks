@@ -4,6 +4,7 @@ services:
     image: splunk/splunk:latest
     restart: unless-stopped
     environment:
+      - SPLUNK_GENERAL_TERMS=--accept-sgt-current-at-splunk-com
       - SPLUNK_START_ARGS=--accept-license
       - SPLUNK_LICENSE_URI=Free
       - SPLUNK_PASSWORD=${SPLUNK_PASSWORD}
