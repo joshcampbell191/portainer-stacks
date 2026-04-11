@@ -1,0 +1,22 @@
+version: '2'
+services:
+  plex:
+    image: plexinc/pms-docker:latest
+    restart: unless-stopped
+    environment:
+      - TZ=Canada/Eastern
+      - PLEX_UID=${PLEX_UID}
+      - PLEX_GID=${PLEX_GID}
+    networks:
+      macvlan:
+        ipv4_address: ${IP_PLEX}
+    volumes:
+      - /volume1/docker/plex/config:/config:rw
+      - /volume1/docker/plex/transcode:/transcode:rw
+      - /volume1/media:/data:ro
+    devices:
+      - /dev/dri/renderD128:/dev/dri/renderD128
+      - /dev/dri/card0:/dev/dri/card0
+networks:
+  macvlan:
+    external: true
