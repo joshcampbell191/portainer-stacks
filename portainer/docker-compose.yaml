@@ -3,9 +3,6 @@ services:
   portainer:
     image: portainer/portainer-ce:alpine-sts
     restart: always
-    ports:
-      - 9443:9443/tcp
-      - 8000:8000/tcp
     network_mode: host
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
