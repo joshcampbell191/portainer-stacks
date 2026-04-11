@@ -10,6 +10,7 @@ services:
     networks:
       macvlan:
         ipv4_address: ${IP_PLEX}
+    hostname: plex
     volumes:
       - /volume1/docker/plex/config:/config:rw
       - /volume1/docker/plex/transcode:/transcode:rw
