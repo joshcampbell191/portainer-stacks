@@ -1,7 +1,6 @@
 version: '2'
 services:
   pihole:
-    container_name: pihole
     image: pihole/pihole:latest
     restart: unless-stopped
     environment:
