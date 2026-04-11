@@ -1,0 +1,19 @@
+version: '2'
+services:
+  splunk:
+    image: splunk/splunk:latest
+    restart: unless-stopped
+    environment:
+      - SPLUNK_START_ARGS=--accept-license
+      - SPLUNK_LICENSE_URI=Free
+      - SPLUNK_PASSWORD
+    networks:
+      macvlan:
+        ipv4_address: ${IP_SPLUNK}
+    hostname: splunk
+    volumes:
+      - /volume1/docker/splunk/etc:/opt/splunk/etc
+      - /volume1/docker/splunk/var:/opt/splunk/var
+networks:
+  macvlan:
+    external: true
