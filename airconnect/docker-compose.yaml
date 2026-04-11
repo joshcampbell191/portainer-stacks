@@ -1,7 +1,7 @@
 version: '2'
 services:
   airconnect:
-    image: 1activegeek/airconnect:1.9.3
+    image: 1activegeek/airconnect:latest
     restart: unless-stopped
     environment:
       - AIRCAST_VAR=-x /config/config.xml
