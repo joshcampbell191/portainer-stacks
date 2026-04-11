@@ -6,7 +6,7 @@ services:
     environment:
       - SPLUNK_START_ARGS=--accept-license
       - SPLUNK_LICENSE_URI=Free
-      - SPLUNK_PASSWORD
+      - SPLUNK_PASSWORD=${SPLUNK_PASSWORD}
     networks:
       macvlan:
         ipv4_address: ${IP_SPLUNK}
