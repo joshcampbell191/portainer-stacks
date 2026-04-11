@@ -11,4 +11,4 @@ services:
       - /volume1/docker/portainer/data:/data:rw
 networks:
   default:
-    portainer_network:
+    name: portainer_network
