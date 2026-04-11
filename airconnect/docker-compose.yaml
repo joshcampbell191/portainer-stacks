@@ -8,4 +8,4 @@ services:
       - AIRUPNP_VAR=kill
     network_mode: host
     volumes:
-      - /volume1/docker/airconnect/config:/config
+      - /volume1/docker/airconnect/config:/config:rw
