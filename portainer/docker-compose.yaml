@@ -1,27 +1,14 @@
 version: '2'
 services:
-  agent:
-    image: portainer/agent:alpine-sts
-    restart: always
-    networks:
-      - agent_network
-    ports:
-      - 9001:9001/tcp
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - /volume1/@docker/volumes:/var/lib/docker/volumes
   portainer:
     image: portainer/portainer-ce:alpine-sts
-    restart: unless-stopped
-    command: -H tcp://agent:9001 --tlsskipverify
-    networks:
-      - agent_network
+    restart: always
     ports:
       - 9443:9443/tcp
       - 8000:8000/tcp
     volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
       - /volume1/docker/portainer/data:/data:rw
-    depends_on:
-      - agent
 networks:
-  agent_network:
+  default:
+    portainer_network:
