@@ -2,9 +2,9 @@ version: 2
 updates:
   - package-ecosystem: "docker-compose"
     directories: 
-      - "/airconnect/docker-compose.yml"
-      - "/pihole/docker-compose.yml"
-      - "/plex/docker-compose.yml"
-      - "/portainer/docker-compose.yml"
+      - "/airconnect"
+      - "/pihole"
+      - "/plex"
+      - "/portainer"
     schedule:
       interval: "weekly"
