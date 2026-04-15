@@ -5,5 +5,6 @@ updates:
       - "/airconnect/"
       - "/pihole/"
       - "/plex/"
+      - "/portainer/"
     schedule:
       interval: "weekly"
