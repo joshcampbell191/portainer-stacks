@@ -1,6 +1,6 @@
 # Plex Stack
 
-Runs Plex Media Server on a dedicated LAN IP via an external macvlan network.
+Runs Plex Media Server on a dedicated LAN IP via an external `macvlan` network.
 
 ## Services
 
