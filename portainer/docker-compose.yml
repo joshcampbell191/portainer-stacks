@@ -9,7 +9,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:rw
       - /volume1/@docker/volumes:/var/lib/docker/volumes:rw
   portainer:
-    image: portainer/portainer-ce:2.39.1-alpine
+    image: portainer/portainer-ce:2.39.2-alpine
     restart: unless-stopped
     command: -H tcp://agent:9001 --tlsskipverify
     ports:
