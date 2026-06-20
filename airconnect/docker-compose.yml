@@ -6,13 +6,8 @@ services:
     environment:
       - AIRCAST_VAR=-x /config/config.xml
       - AIRUPNP_VAR=kill
-    networks:
-      - host
+    network_mode: host
     volumes:
       - airconnect_config:/config:rw
-networks:
-  host:
-    external: true
-    name: host
 volumes:
   airconnect_config:
