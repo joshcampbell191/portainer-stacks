@@ -1,7 +1,7 @@
 version: '2'
 services:
   agent:
-    image: portainer/agent:2.39.3-alpine
+    image: portainer/agent:2.39.4-alpine
     restart: always
     ports:
       - 9001:9001/tcp
