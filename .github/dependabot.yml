@@ -5,6 +5,14 @@ updates:
       - "/airconnect/"
       - "/pihole/"
       - "/plex/"
-      - "/portainer/"
     schedule:
       interval: "weekly"
+
+  - package-ecosystem: "docker-compose"
+    directory: "/portainer"
+    schedule:
+      interval: "weekly"
+    groups:
+      portainer-compose:
+        patterns:
+          - "*"
